@@ -1,8 +1,19 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
-module.exports = (sequelize, DataTypes) => {
+import { Model } from "sequelize";
+/**
+ * @typedef NoteAttributes
+ * @property {string} id
+ * @property {string} title
+ * @property {string} body
+ * @property {Date} createdAt
+ * @property {Date} updatedAt
+ */
+export const Models = {};
+/**
+ * @param {import('sequelize').Sequelize} sequelize
+ * @param {import('sequelize').DataTypes} DataTypes
+ */
+export default (sequelize, DataTypes) => {
+  /** @extends {Model<NoteAttributes>} */
   class Note extends Model {
     /**
      * Helper method for defining associations.
@@ -13,12 +24,22 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   }
-  Note.init({
-    title: DataTypes.STRING,
-    body: DataTypes.TEXT
-  }, {
-    sequelize,
-    modelName: 'Note',
-  });
+  Note.init(
+    {
+      title: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      body: {
+        type: DataTypes.TEXT,
+        allowNull: false,
+      },
+    },
+    {
+      sequelize,
+      modelName: "Note",
+      tableName: "Notes",
+    }
+  );
   return Note;
 };

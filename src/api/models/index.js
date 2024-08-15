@@ -51,4 +51,4 @@ async function initializeDatabase() {
   return /** @type {Database} */ (/** @type {unknown} */ (db));
 }
 
-export const { sequelize, User } = await initializeDatabase();
+export const { sequelize, Note } = await initializeDatabase();
