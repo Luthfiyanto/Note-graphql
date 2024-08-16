@@ -7,15 +7,20 @@ The required feature is to run simple CRUD of Noteapp.
    ```bash
    git clone https://github.com/Luthfiyanto/Note-graphql.git
    ```
-3. Install dependencies
+2. Install dependencies
    ```bash
    npm i
+   ```
+3. Check your credentials on .env.development. Make sure you have the correct credentials for your PostgreSQL database. Or create .env.local so that it doesn't get tracked by git.
+4. Create your database if doesn't exist
+   ```bash
+   npm run db:create
    ```
 5. Run the migration
    ```bash
    npm run db:migrate
    ```
-7. Run the project
+6. Run the project
    ```bash
    npm run dev
    ```
